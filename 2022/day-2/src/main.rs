@@ -105,7 +105,7 @@ mod game {
 }
 
 fn main() {
-    let data = fs::read_to_string("input-full.txt").expect("Unable to read file");
+    let data = fs::read_to_string("input.txt").expect("Unable to read file");
     let hands = data.split("\n").collect::<Vec<&str>>();
 
     let total_1 = game::strategy_one(&hands);
@@ -115,4 +115,25 @@ fn main() {
     let total_2 = game::strategy_two(&hands);
 
     println!("Total 2: {}", total_2);
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_strategy_one() {
+        let hands = vec!["A Y", "B X", "C Z"];
+        let total = game::strategy_one(&hands);
+
+        assert_eq!(total, 15);
+    }
+
+    #[test]
+    fn test_strategy_two() {
+        let hands = vec!["A Y", "B X", "C Z"];
+        let total = game::strategy_two(&hands);
+
+        assert_eq!(total, 12);
+    }
 }
