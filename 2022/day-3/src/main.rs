@@ -84,7 +84,7 @@ mod rucksacks {
             })
             .collect();
 
-        // group rucksackes into vectors of 3
+        // group rucksacks into vectors of 3
         let mut grouped_rucksacks = Vec::new();
         let mut group = Vec::new();
         for rucksack in rucksacks {
